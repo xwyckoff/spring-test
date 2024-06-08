@@ -19,7 +19,7 @@ public class OrderController {
         return "orderForm";
     }
 
-    @PostMapping("/order")
+    @PostMapping
     public String processOrder(TacoOrder order, SessionStatus sessionSatus) {
         log.info("Order submitted: {}", order);
         sessionSatus.setComplete();
