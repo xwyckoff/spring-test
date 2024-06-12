@@ -35,7 +35,7 @@ public class JdbcOrderRepository implements OrderRepository {
             "INSERT INTO Taco_Order "
             + "(delivery_name, delivery_street, delivery_city, "
             + "delivery_state, delivery_zip, cc_number, "
-            + "cc_expiration, cc_cvv, placedAt) "
+            + "cc_expiration, cc_cvv, placed_at) "
             + "values(?, ?, ?, ?, ?, ?, ?, ?, ?)",
             Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
             Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
@@ -104,7 +104,7 @@ public class JdbcOrderRepository implements OrderRepository {
     private void saveIngredientRefs(long tacoId, List<Ingredient> ingredients) {
         List<IngredientRef> ingredientRefs = new ArrayList<>();
         for(Ingredient ingredient : ingredients) {
-            ingredientRefs.add(new IngredientRef(ingredient.getName()));
+            ingredientRefs.add(new IngredientRef(ingredient.getId()));
         }
         int key = 0;
         for(IngredientRef ingredientRef : ingredientRefs) {
