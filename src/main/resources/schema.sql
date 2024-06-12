@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS Ingredient_Ref (
 );
 
 CREATE TABLE IF NOT EXISTS Ingredient (
-    id varchar(4) NOT NULL,
+    id varchar(4) NOT NULL PRIMARY KEY,
     name varchar(25) NOT NULL,
     type varchar(10) NOT NULL
 );
