@@ -9,4 +9,29 @@ CREATE TABLE IF NOT EXISTS Taco_Order (
     cc_expiration varchar(5) NOT NULL,
     cc_cvv varchar(3) NOT NULL,
     placed_at timestamp NOT NULL
-    ) 
+);
+
+CREATE TABLE IF NOT EXISTS Taco (
+    id identity,
+    name varchar(50) NOT NULL,
+    taco_order bigint NOT NULL,
+    taco_order_key bigint NOT NULL,
+    created_at timestamp NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Ingredient_Ref (
+    ingredient varchar(4) NOT NULL,
+    taco bigint NOT NULL,
+    taco_key bigint NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Ingredient (
+    id varchar(4) NOT NULL,
+    name varchar(25) NOT NULL,
+    type varchar(10) NOT NULL
+);
+
+ALTER TABLE Taco
+    ADD FOREIGN KEY (taco_order) REFERENCES Taco_Order(id);
+ALTER TABLE Ingredient_Ref
+    ADD FOREIGN KEY (ingredient) REFERENCES Ingredient(id);
