@@ -1,13 +1,9 @@
 package sia.taco_cloud.data;
 
-import java.util.Optional;
+import org.springframework.data.repository.CrudRepository;
 
 import sia.taco_cloud.Ingredient;
 
-public interface IngredientRepository {
-    Iterable<Ingredient> findAll();
-    
-    Optional<Ingredient> findById(String id);
+public interface IngredientRepository extends CrudRepository<Ingredient, String>{
 
-    Ingredient save(Ingredient ingredient);
 }

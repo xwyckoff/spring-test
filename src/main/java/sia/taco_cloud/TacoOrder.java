@@ -3,6 +3,8 @@ package sia.taco_cloud;
 import java.util.List;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
@@ -15,11 +17,13 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
+@Table
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private long id;
-    private Date placedAt;
+    @Id
+    private Long id;
+    private Date placedAt = new Date();
 
     @NotBlank(message = "Delivery name cannot be blank!")
     private String deliveryName;
