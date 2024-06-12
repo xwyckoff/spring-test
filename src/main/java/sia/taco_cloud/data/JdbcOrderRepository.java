@@ -33,7 +33,7 @@ public class JdbcOrderRepository implements OrderRepository {
     public TacoOrder save(TacoOrder order) {
         PreparedStatementCreatorFactory pscf = new PreparedStatementCreatorFactory(
             "INSERT INTO Taco_Order "
-            + "(dlivery_name, delivery_street, delivery_city, "
+            + "(delivery_name, delivery_street, delivery_city, "
             + "delivery_state, delivery_zip, cc_number, "
             + "cc_expiration, cc_cvv, placedAt) "
             + "values(?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -53,6 +53,7 @@ public class JdbcOrderRepository implements OrderRepository {
             order.getDeliveryZip(),
             order.getCcNumber(),
             order.getCcExpiration(),
+            order.getCcCVV(),
             order.getPlacedAt()
         ));
 
