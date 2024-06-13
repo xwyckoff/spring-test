@@ -5,6 +5,7 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -17,6 +18,8 @@ public class Taco {
     
     @Id
     private Long id;
+
+    @CreatedDate
     private Date createdAt = new Date();
 
     @NotNull
